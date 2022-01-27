@@ -99,5 +99,11 @@ namespace Programacao_orientada_objeto_ContaBancariaSimples
 
             return relatorioDastransacoes.ToString();
         }
+
+
+        public virtual void RealizarTransacaoDeFimDeMes()
+        {
+
+        }
     }
 }
