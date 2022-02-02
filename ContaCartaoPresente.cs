@@ -19,6 +19,7 @@ namespace Programacao_orientada_objeto_ContaBancariaSimples
             {
                 FazerDeposito(_depositoMensal, DateTime.Now, "Adicionar depósito mensal");
             }
+        }
 
     }
 }

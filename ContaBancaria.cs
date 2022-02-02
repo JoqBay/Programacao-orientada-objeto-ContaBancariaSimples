@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Programacao_orientada_objeto_ContaBancariaSimples
 {
-    public class ContaBancaria
+    public class ContaBancaria : ITipoDaConta
     {
+        private int _tipoDaContaPessoaFisica;
+        private int _tipoDaContaPessoaJuridica;
+
         private static int numeroDaContaIncremental = 1234567890;
         public string NumeroDaConta { get; }
         public string NomeDoProprietarioDaConta { get; set; }
@@ -25,21 +28,41 @@ namespace Programacao_orientada_objeto_ContaBancariaSimples
             }
         }
 
+        // Implementando Interface
+        public int PessoaFisica
+        {
+            get => _tipoDaContaPessoaFisica;
+            set => _tipoDaContaPessoaFisica = 1;
+        }
+        public int PessoaJuridica
+        { 
+            get => _tipoDaContaPessoaJuridica;
+            set => _tipoDaContaPessoaJuridica = 2;
+        }
+
+
+
+
         private List<Transacao> todasAsTransacoes = new List<Transacao>();
 
 
         private readonly decimal saldoMinimoBalanco;
 
-        public ContaBancaria(string nome, decimal saldoInicialBalanco) : this(nome, saldoInicialBalanco, 0)
+        public ContaBancaria(string nome, decimal saldoInicialBalanco) : this(nome, saldoInicialBalanco, 0, 1, 2)
         {
 
         }
 
 
-        public ContaBancaria(string nome, decimal saldoInicialBalanco, decimal saldoMinimoBalanco)
+        public ContaBancaria(string nome, decimal saldoInicialBalanco, decimal saldoMinimoBalanco, int pessoaFisica, int pessoaJuridica)
         {
             NumeroDaConta = numeroDaContaIncremental.ToString();
             numeroDaContaIncremental++;
+
+
+            PessoaFisica = _tipoDaContaPessoaFisica;
+            PessoaJuridica = _tipoDaContaPessoaJuridica;
+
 
             NomeDoProprietarioDaConta = nome;
             this.saldoMinimoBalanco = saldoMinimoBalanco;
